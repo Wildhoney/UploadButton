@@ -1,0 +1,30 @@
+{
+  "name": "upload-button",
+  "version": "0.1.0",
+  "description": "UploadButton is a microscopic module for a custom stylable HTML5 upload button!",
+  "main": "dist/upload-button.min.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Wildhoney/UploadButton.git"
+  },
+  "keywords": [
+    "button",
+    "upload",
+    "input"
+  ],
+  "author": "Adam Timberlake <adam.timberlake@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Wildhoney/UploadButton/issues"
+  },
+  "homepage": "https://github.com/Wildhoney/UploadButton",
+  "devDependencies": {
+    "express": "^4.11.0"
+  }
+}
