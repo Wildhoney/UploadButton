@@ -8,4 +8,9 @@ button[is="upload-button"] {
     cursor: pointer;
     border: 0;
     outline: none;
+    transition: background-color .5s;
+}
+
+button[is="upload-button"]:hover {
+    background-color: black;
 }
