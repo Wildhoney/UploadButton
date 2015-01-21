@@ -14,24 +14,54 @@
 
         /**
          * @method createInput
+         * @param rootElement {Object}
          * @return {Object}
          */
-        createInput: function createInput() {
+        createInput: function createInput(rootElement) {
 
             var input = $document.createElement('input');
             input.setAttribute('type', 'file');
 
             /**
-             * @method applyStyles
+             * @method applyAttributes
+             * @param attributes {Array}
              * @return {void}
              */
-            (function applyStyles() {
+            (function applyAttributes(attributes) {
 
-                input.style.position      = 'absolute';
-                input.style.opacity       = 0.0001;
-                input.style.pointerEvents = 'none';
+                attributes.forEach(function forEach(attribute) {
 
-            })();
+                    // Define each attribute with a fallback default value.
+                    var name = attribute.attr;
+                    input.setAttribute(name, rootElement.getAttribute(name) || attribute.default);
+
+                });
+
+            })([
+                { attr: 'accept',   default: '*'    },
+                { attr: 'multiple', default: false  },
+                { attr: 'required', default: false  }
+            ]);
+
+            /**
+             * @method applyStyles
+             * @param styles {Array}
+             * @return {void}
+             */
+            (function applyStyles(styles) {
+
+                styles.forEach(function forEach(style) {
+
+                    // Define each style property with its value.
+                    input.style[style.property] = style.value;
+
+                });
+
+            })([
+                { property: 'position',      value: 'absolute'  },
+                { property: 'opacity',       value: 0.0001      },
+                { property: 'pointerEvents', value: 'none'      }
+            ]);
 
             return input;
 
@@ -85,7 +115,7 @@
                 value: function value() {
 
                     var uploadButton = new UploadButton(),
-                        inputElement = uploadButton.createInput();
+                        inputElement = uploadButton.createInput(this);
 
                     // Setup the events.
                     this.onclick     = uploadButton.setupClick.bind(inputElement);

@@ -1,7 +1,7 @@
 (function main() {
 
     var mainModule = 'module/UploadButton.js',
-        vendorDest = 'example/js/vendor/upload-button',
+        vendorDest = 'example/vendor/upload-button',
         devDist    = 'upload-button.js',
         minDist    = 'upload-button.min.js';
 
