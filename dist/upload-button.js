@@ -44,7 +44,9 @@
 
                     // Define each attribute with a fallback default value.
                     var name  = attribute.attr,
-                        value = rootElement.getAttribute(name) || attribute.default;
+                        value = rootElement.getAttribute(name) ||
+                                rootElement.getAttribute('data-' + name) ||
+                                attribute.default;
 
                     if (value) {
 

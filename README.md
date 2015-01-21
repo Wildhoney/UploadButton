@@ -43,3 +43,5 @@ Attributes are defined in the usual way with the `button` element:
     Upload Files
 </button>
 ```
+
+**Note:** `UploadButton` also supports the adding of `data-` attributes to the `button` element as well, such as: `data-multiple="multiple"`.

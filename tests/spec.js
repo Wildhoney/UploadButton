@@ -83,4 +83,14 @@ describe('UploadButton', function() {
 
     });
 
+    it('Should be able to support using the "data" attributes too;', function() {
+
+        createElement([
+            { name: 'data-accept', value: '*jpg,*.png,*.gif' }
+        ]);
+
+        expect(inputElement.getAttribute('accept')).toEqual('*jpg,*.png,*.gif');
+
+    });
+
 });
