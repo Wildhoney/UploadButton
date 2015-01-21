@@ -11,7 +11,10 @@ script:
   - gulp build
 
 addons:
-  sauce_connect: false
+  sauce_connect:
+    username: Wildhoney
+    access_key:
+      secure: SfxHjsuQcjJ2RGzoJv7XFXHfQL1VuXGislxntOOczN8TlFABufw9LPwr7XWHPPhBffTCbaCeuvT3dY+1i+E/h6mHMayEn3IpaXk1RhBFW7NID3LCVDzQV6T2Er/wCRdN2OjM3jrwBSeFJxSdYfEJSTyw7ipshWx1sjDeL6NwznI=
 
 deploy:
   provider: heroku
@@ -23,8 +26,3 @@ deploy:
   app: upload-button
   on:
     repo: Wildhoney/UploadButton
-
-env:
-  global:
-    - secure: YqIcgalbfRcH6fioiVx+6uBsFWTw8vLZkGC08EOOX66iZRHMz4ChVQklj6dF3KDI5WV60UGqiOBFAVc2XEPIo3LkfGgdRU0Tgn/JWT8YLk9QQoQyiuRcLG8z8PKmtvjmG3huhyaEz0dfgHsDp95QEaSabRylSj3GIkFYPNOHspk=
-    - secure: D5KyrOgcV4A6GchgKv1M+te1SxhfrfijmbavUh5rG9360vcP5RiXNF9ic4Ho9lD1pzX0gJG3SApt0xk+ogbbhR1D/6RwDD/6Tnqd9d7vrsxe7rg+5LbYruCQ74QVScA7sk6QZgSAkyYWBV8kJB8ez+mYnaNeuDeSZ+Nywc/c750=
