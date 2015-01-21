@@ -1,4 +1,4 @@
-(function main($document) {
+(function main($document, $window) {
 
     "use strict";
 
@@ -15,7 +15,7 @@
      * @constructor
      * @type {Function}
      */
-    var UploadButton = function UploadButton() {};
+    var UploadButton = $window.UploadButton = function UploadButton() {};
 
     /**
      * @property prototype
@@ -43,8 +43,16 @@
                 attributes.forEach(function forEach(attribute) {
 
                     // Define each attribute with a fallback default value.
-                    var name = attribute.attr;
-                    input.setAttribute(name, rootElement.getAttribute(name) || attribute.default);
+                    var name  = attribute.attr,
+                        value = rootElement.getAttribute(name) || attribute.default;
+
+                    if (value) {
+
+                        // Define the attribute only if it's not a falsy value.
+                        input.setAttribute(name, value);
+
+                    }
+
                     rootElement.removeAttribute(name);
 
                 });
@@ -110,45 +118,46 @@
 
     };
 
-    $document.addEventListener('DOMContentLoaded', function() {
-
-        var proto = Object.create(HTMLElement.prototype, {
-
-            /**
-             * @property createdCallback
-             * @type {Object}
-             */
-            createdCallback: {
-
-                /**
-                 * @method value
-                 * @return {void}
-                 */
-                value: function value() {
-
-                    var uploadButton = new UploadButton(),
-                        inputElement = uploadButton.createInput(this);
-
-                    // Setup the events.
-                    this.onclick     = uploadButton.setupClick.bind(inputElement);
-                    this.onmousemove = uploadButton.setupMouseMove.bind(inputElement);
-
-                    // Create shadow DOM root.
-                    uploadButton.createShadowDOM(this, inputElement);
-                }
-            }
-
-        });
+    /**
+     * @property prototype
+     * @type {HTMLElement}
+     */
+    var prototype = Object.create(HTMLElement.prototype, {
 
         /**
-         * @property MegaButton
+         * @property createdCallback
          * @type {Object}
          */
-        $document.registerElement('upload-button', {
-            prototype: proto,
-            extends: 'button'
-        });
+        createdCallback: {
+
+            /**
+             * @method value
+             * @return {void}
+             */
+            value: function value() {
+
+                var uploadButton = new UploadButton(),
+                    inputElement = uploadButton.createInput(this);
+
+                // Setup the events.
+                this.onclick     = uploadButton.setupClick.bind(inputElement);
+                this.onmousemove = uploadButton.setupMouseMove.bind(inputElement);
+
+                // Create shadow DOM root.
+                uploadButton.createShadowDOM(this, inputElement);
+
+            }
+        }
 
     });
 
-})(window.document);
+    /**
+     * @property MegaButton
+     * @type {Object}
+     */
+    $document.registerElement('upload-button', {
+        prototype: prototype,
+        extends: 'button'
+    });
+
+})(window.document, window);

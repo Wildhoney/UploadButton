@@ -8,6 +8,7 @@
     var gulp   = require('gulp'),
         uglify = require('gulp-uglify'),
         rename = require('gulp-rename'),
+        karma  = require('gulp-karma'),
         jshint = require('gulp-jshint');
 
     gulp.task('build', function gulpBuild() {
@@ -30,7 +31,20 @@
 
     });
 
-    gulp.task('test', ['hint']);
+    gulp.task('karma', function karmaTests() {
+
+        return gulp.src([])
+            .pipe(karma({
+                configFile: 'karma.conf.js',
+                action: 'run'
+            }))
+            .on('error', function onError(error) {
+                throw error;
+            });
+
+    });
+
+    gulp.task('test', ['hint', 'karma']);
     gulp.task('default', ['test', 'build']);
 
 })();
