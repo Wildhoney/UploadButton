@@ -6,7 +6,6 @@ node_js:
 
 script:
   - bower install
-  - gulp test
   - gulp build
 
 addons:

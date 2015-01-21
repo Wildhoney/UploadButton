@@ -17,11 +17,7 @@ module.exports = function(config) {
             'tests/spec.js'
         ],
         sauceLabs: {
-            testName: 'UploadButton',
-            startConnect: false,
-            connectOptions: {
-                verbose: true
-            }
+            testName: 'UploadButton Karma Tests'
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
