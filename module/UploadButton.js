@@ -58,9 +58,13 @@
                 });
 
             })([
-                { attr: 'accept',   default: '*'    },
-                { attr: 'multiple', default: false  },
-                { attr: 'required', default: false  }
+                { attr: 'accept',    default: '*'    },
+                { attr: 'autofocus', default: false  },
+                { attr: 'disabled',  default: false  },
+                { attr: 'form',      default: false  },
+                { attr: 'multiple',  default: false  },
+                { attr: 'name',      default: false  },
+                { attr: 'required',  default: false  }
             ]);
 
             /**
@@ -122,7 +126,7 @@
      * @property prototype
      * @type {HTMLElement}
      */
-    var prototype = Object.create(HTMLElement.prototype, {
+    var prototype = Object.create(HTMLButtonElement.prototype, {
 
         /**
          * @property createdCallback
