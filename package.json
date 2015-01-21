@@ -6,7 +6,9 @@
   "directories": {
     "example": "example"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "gulp test"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Wildhoney/UploadButton.git"
