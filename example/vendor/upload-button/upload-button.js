@@ -6,10 +6,12 @@
      * @constructor
      * @type {Function}
      */
-    var UploadButton = function UploadButton() {
+    var UploadButton = function UploadButton() {};
 
-    };
-
+    /**
+     * @property prototype
+     * @type {Object}
+     */
     UploadButton.prototype = {
 
         /**
@@ -34,6 +36,7 @@
                     // Define each attribute with a fallback default value.
                     var name = attribute.attr;
                     input.setAttribute(name, rootElement.getAttribute(name) || attribute.default);
+                    rootElement.removeAttribute(name);
 
                 });
 
