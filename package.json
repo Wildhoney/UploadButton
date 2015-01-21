@@ -1,6 +1,6 @@
 {
   "name": "uploadbutton",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "UploadButton is a tiny module for a custom stylable upload button. Using HTML5's Custom Element API and Shadow DOM for encapsulation.",
   "main": "dist/upload-button.min.js",
   "directories": {
