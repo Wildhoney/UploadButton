@@ -43,8 +43,16 @@
                 attributes.forEach(function forEach(attribute) {
 
                     // Define each attribute with a fallback default value.
-                    var name = attribute.attr;
-                    input.setAttribute(name, rootElement.getAttribute(name) || attribute.default);
+                    var name  = attribute.attr,
+                        value = rootElement.getAttribute(name) || attribute.default;
+
+                    if (value) {
+
+                        // Define the attribute only if it's not a falsy value.
+                        input.setAttribute(name, value);
+
+                    }
+
                     rootElement.removeAttribute(name);
 
                 });
