@@ -18,6 +18,7 @@ module.exports = function(config) {
         ],
         sauceLabs: {
             testName: 'UploadButton',
+            startConnect: false,
             connectOptions: {
                 verbose: true
             }
