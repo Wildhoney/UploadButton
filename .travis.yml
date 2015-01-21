@@ -4,10 +4,12 @@ node_js:
   - '0.10'
   - '0.11'
 
-script:
-  - npm install
+before_script:
   - bower install
   - gulp build
+
+script:
+  gulp test
 
 addons:
   sauce_connect: true
