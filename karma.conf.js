@@ -1,32 +1,22 @@
 module.exports = function(config) {
 
-    var customLaunchers = {
-        sl_chrome: {
-            base: 'SauceLabs',
-            browserName: 'Chrome',
-            platform: 'OS X 10.9',
-            version: '39'
-        }
-    };
+    // Determine which strategy to use based on the `SAUCE_ACCESS_KEY` env.
+    const KARMA_STRATEGY = process.env.SAUCE_ACCESS_KEY ? 'saucelabs' : 'localhost';
 
-    config.set({
-
+    var options = {
         frameworks: ['jasmine'],
         files: [
             'module/UploadButton.js',
             'tests/spec.js'
         ],
-        sauceLabs: {
-            testName: 'UploadButton Karma Tests'
-        },
-        customLaunchers: customLaunchers,
-        browsers: Object.keys(customLaunchers),
-        reporters: ['saucelabs', 'progress'],
         port: 9876,
         colors: true,
         logLevel: config.LOG_INFO,
         autoWatch: false,
         singleRun: true
+    };
 
-    });
+    options = require('./karma/' + KARMA_STRATEGY + '.js')(options);
+    config.set(options);
+
 };

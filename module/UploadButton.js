@@ -43,8 +43,8 @@
                 attributes.forEach(function forEach(attribute) {
 
                     // Define each attribute with a fallback default value.
-                    var name  = attribute.attr,
-                        value = rootElement.getAttribute(name) ||
+                    var name  = attribute.attr;
+                    var value = rootElement.getAttribute(name) ||
                                 rootElement.getAttribute('data-' + name) ||
                                 attribute.default;
 
@@ -55,7 +55,9 @@
 
                     }
 
+                    // Remove attribute from the root element.
                     rootElement.removeAttribute(name);
+                    rootElement.removeAttribute('data-' + name);
 
                 });
 
@@ -142,8 +144,8 @@
              */
             value: function value() {
 
-                var uploadButton = new UploadButton(),
-                    inputElement = uploadButton.createInput(this);
+                var uploadButton = new UploadButton();
+                var inputElement = uploadButton.createInput(this);
 
                 // Setup the events.
                 this.onclick     = uploadButton.setupClick.bind(inputElement);

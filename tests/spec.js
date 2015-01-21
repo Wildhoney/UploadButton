@@ -40,6 +40,7 @@ describe('UploadButton', function() {
         expect(rootElement.getAttribute('multiple')).toBeNull();
         expect(rootElement.getAttribute('name')).toBeNull();
         expect(rootElement.getAttribute('required')).toBeNull();
+        expect(rootElement.getAttribute('data-accept')).toBeNull();
 
         // Custom attributes that the INPUT doesn't inherit will not be removed.
         expect(rootElement.getAttribute('custom-attr')).toEqual('yes');
