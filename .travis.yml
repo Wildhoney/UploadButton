@@ -1,0 +1,26 @@
+language: node_js
+
+node_js:
+  - '0.10'
+  - '0.11'
+
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+script:
+  - npm install
+  - bower install
+  - gulp test
+  - gulp build
+
+deploy:
+  provider: heroku
+  strategy: api
+  all_branches: true
+  skip_cleanup: true
+  api_key:
+    secure: G3XxsVV6gAkHCJu1kfoQnSzFSP5Hsw4gKmyjFLzmRMEECCZsao1L+9n1Olk5gc23glMqIoJN4w2s58RkLPh0e9XtpNcKbSRw87dkMYpxIATetjpI18g5e7rED+RvBq/w/jBNnjqm3tetrkDSDmdWs3oMjUuI9lCj3tiV82ZMu2s=
+  app: upload-button
+  on:
+    repo: Wildhoney/UploadButton

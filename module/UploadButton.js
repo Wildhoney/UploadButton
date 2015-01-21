@@ -3,6 +3,15 @@
     "use strict";
 
     /**
+     * @constant MOUSE
+     * @type {{OFFSET_Y: number, OFFSET_X: number}}
+     */
+    var MOUSE = {
+        OFFSET_Y: 10,
+        OFFSET_X: 100
+    };
+
+    /**
      * @constructor
      * @type {Function}
      */
@@ -84,8 +93,8 @@
          * @return {void}
          */
         setupMouseMove: function setupMouseMove(event) {
-            this.style.top  = (event.layerY - 10) + 'px';
-            this.style.left = (event.layerX - 100) + 'px';
+            this.style.top  = (event.layerY - MOUSE.OFFSET_Y) + 'px';
+            this.style.left = (event.layerX - MOUSE.OFFSET_X) + 'px';
         },
 
         /**
