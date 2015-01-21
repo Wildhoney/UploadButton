@@ -13,34 +13,34 @@
 
     gulp.task('build', function gulpBuild() {
 
-        gulp.src(mainModule)
-            .pipe(rename(devDist))
-            .pipe(gulp.dest('dist'))
-            .pipe(gulp.dest(vendorDest))
-            .pipe(rename(minDist))
-            .pipe(uglify())
-            .pipe(gulp.dest('dist'));
+        return gulp.src(mainModule)
+                   .pipe(rename(devDist))
+                   .pipe(gulp.dest('dist'))
+                   .pipe(gulp.dest(vendorDest))
+                   .pipe(rename(minDist))
+                   .pipe(uglify())
+                   .pipe(gulp.dest('dist'));
 
     });
 
     gulp.task('hint', function gulpHint() {
 
         return gulp.src(mainModule)
-            .pipe(jshint('.jshintrc'))
-            .pipe(jshint.reporter('default'));
+                   .pipe(jshint('.jshintrc'))
+                   .pipe(jshint.reporter('default'));
 
     });
 
     gulp.task('karma', function karmaTests() {
 
         return gulp.src([])
-            .pipe(karma({
-                configFile: 'karma.conf.js',
-                action: 'run'
-            }))
-            .on('error', function onError(error) {
-                throw error;
-            });
+                   .pipe(karma({
+                       configFile: 'karma.conf.js',
+                       action: 'run'
+                   }))
+                   .on('error', function onError(error) {
+                       throw error;
+                   });
 
     });
 

@@ -19,8 +19,10 @@ module.exports = function(config) {
         sauceLabs: {
             testName: 'UploadButton',
             connectOptions: {
-                verbose: true
-            }
+                verbose: true,
+                tunnelIdentifier: 'uploadbutton-karma'
+            },
+            tunnelIdentifier: 'uploadbutton-karma'
         },
         customLaunchers: customLaunchers,
         browsers: Object.keys(customLaunchers),
