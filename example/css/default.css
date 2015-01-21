@@ -1,11 +1,11 @@
 button[is="upload-button"] {
-    /*background-color: lightseagreen;*/
-    /*padding: 20px;*/
-    /*display: inline-block;*/
-    /*color: white;*/
-    /*font-family: Arial, Helvetica, sans-serif;*/
-    /*border-radius: 3px;*/
-    /*cursor: pointer;*/
-    /*border: 0;*/
-    /*outline: none;*/
+    background-color: lightseagreen;
+    padding: 20px;
+    display: inline-block;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 3px;
+    cursor: pointer;
+    border: 0;
+    outline: none;
 }
