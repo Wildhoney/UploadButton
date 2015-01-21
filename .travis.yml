@@ -12,7 +12,8 @@ script:
 addons:
   sauce_connect:
     username: Wildhoney
-    secure: SfxHjsuQcjJ2RGzoJv7XFXHfQL1VuXGislxntOOczN8TlFABufw9LPwr7XWHPPhBffTCbaCeuvT3dY+1i+E/h6mHMayEn3IpaXk1RhBFW7NID3LCVDzQV6T2Er/wCRdN2OjM3jrwBSeFJxSdYfEJSTyw7ipshWx1sjDeL6NwznI=
+    access_key:
+      secure: SfxHjsuQcjJ2RGzoJv7XFXHfQL1VuXGislxntOOczN8TlFABufw9LPwr7XWHPPhBffTCbaCeuvT3dY+1i+E/h6mHMayEn3IpaXk1RhBFW7NID3LCVDzQV6T2Er/wCRdN2OjM3jrwBSeFJxSdYfEJSTyw7ipshWx1sjDeL6NwznI=
 
 deploy:
   provider: heroku
